@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState,useMemo} from 'react'
+import Pager from './components/Pager/Pager'
+import Article from './components/Article/Article'
+import data from './data/capi.json'
+import './App.css'
 
+let pageSize = 3
 function App() {
+  const [currentPage, setCurrentPage] = useState(1)
+
+  /*get currentTableData */
+  const currentTableData = useMemo(() => {
+    const firstPageIndex = (currentPage - 1) * pageSize
+    const lastPageIndex = firstPageIndex + pageSize
+    return data.results.slice(firstPageIndex, lastPageIndex)
+  }, [currentPage])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <ul className='list-container'>
+        {currentTableData.map(item => <Article key={item.id} {...item}/>)}
+      </ul>
+      <Pager
+      articleLength={data.results.length}
+      panelNumber={5}
+      currentPage={currentPage}
+      pageSize={pageSize}
+      onPageChange={page => setCurrentPage(page)}/>
+    </>
+  )
 }
 
-export default App;
+export default App

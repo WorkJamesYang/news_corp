@@ -1,8 +1,19 @@
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event'
 import App from './App';
 
-test('renders learn react link', () => {
+
+test('prev button initialy not abled', async () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const firstButton = screen.getByTestId('test-first');
+  expect(firstButton).toHaveClass('disabled');
+});
+
+
+test('prev button being able to click after next button clicked', async () => {
+  render(<App />);
+  const firstButton = screen.getByTestId('test-first');
+
+  await userEvent.click(screen.getByText('next'))
+  expect(firstButton).not.toHaveClass('disabled');
 });
