@@ -17,7 +17,7 @@ const Pager = props =>{
     }
 
     return (
-        <>
+        <div className='pager'>
             <span onClick={() =>{toPage(1,props)}} 
                 className={props.currentPage === 1 ? 'item disabled' : 'item'} >first</span>
             <span  onClick={() =>{toPage(props.currentPage - 1 < 1 ? 1: props.currentPage -1,props)}}
@@ -26,7 +26,7 @@ const Pager = props =>{
             <span onClick={() =>{toPage(props.currentPage + 1 >  pageNumber ? pageNumber : props.currentPage + 1,props)}} className={props.currentPage === pageNumber ? 'item disabled' : 'item'}>next</span>
             <span onClick={() =>{toPage(pageNumber,props)}} className={props.currentPage === pageNumber ? 'item disabled' : 'item'}>last</span>
             <span className='current'>{props.currentPage}</span>/<span>{pageNumber}</span>
-        </>
+        </div>
     )
 }
 export default Pager

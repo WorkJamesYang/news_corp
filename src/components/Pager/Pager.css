@@ -1,3 +1,7 @@
+.pager{
+    text-align: center;
+    margin:20px auto;
+}
 .item{
     display:inline-block;
     padding: 6px 10px;

@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Article(props) {
     return (
-        <li>
+        <li className="article-item">
             <h4>{props.headline.default}</h4>
             <span>{props.date.live}</span>
             <div dangerouslySetInnerHTML={{__html: props.standfirst.default}}/>

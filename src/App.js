@@ -17,7 +17,7 @@ function App() {
 
   return (
     <>
-      <ul>
+      <ul className='list-container'>
         {currentTableData.map(item => <Article key={item.id} {...item}/>)}
       </ul>
       <Pager
