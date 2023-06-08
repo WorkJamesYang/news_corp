@@ -3,13 +3,22 @@
   max-width:1200px;
 }
 .list-container {
-  display:flex;
-  justify-content: center;
   list-style-type: none;
-  
 }
 .article-item {
-  flex: 1 1 0;
+  display:flex;
+  padding-bottom:15px;
+  margin-bottom:15px;
+  border-bottom:1px solid #ccc;
+}
+.article-item div:first-child{
+  margin-right: 20px;
+}
+.article-item h4{
+  margin: 0 0 5px 0;
+}
+.article-item p{
+  margin: 0 0 5px 0;
 }
 .article-item span{
   color:#939393;
