@@ -1,8 +1,12 @@
+#root{
+  margin: 0 auto;
+  max-width:1200px;
+}
 .list-container {
   display:flex;
-  align-items: center;
   justify-content: center;
   list-style-type: none;
+  
 }
 .article-item {
   flex: 1 1 0;
